@@ -3,8 +3,8 @@ FROM rockylinux/rockylinux:latest
 RUN dnf makecache --refresh
 RUN dnf -y install wget
 RUN dnf install --assumeyes git-all
-# pull the latest developer code
-RUN git clone --depth 1 -b develop https://github.com/IQSS/dataverse
+# pull the latest developer code from the `docker-build` branch
+RUN git clone --branch docker-build --depth 1 -b develop https://github.com/kuhlaid/dataverse.git
 # RUN cd dataverse
 # ENTRYPOINT ./conf/docker-aio/prep_it.bash ; /bin/bash (does not work)
 # RUN /bin/bash -c ./conf/docker-aio/prep_it.bash (does not work)
