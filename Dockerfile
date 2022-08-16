@@ -11,5 +11,6 @@ RUN cd dataverse
 # RUN /bin/bash -c /dataverse/conf/docker-aio/prep_it.bash (does not work)
 # CMD ["/dataverse/conf/docker-aio/prep_it.bash"] (does not work)
 # CMD ["./conf/docker-aio/prep_it.bash"] (Docker disliked this one)
-CMD ["conf/docker-aio/prep_it.bash"]
+# CMD ["conf/docker-aio/prep_it.bash"] (no good)
+CMD ["sh", "-c", "./conf/docker-aio/prep_it.bash"]
 # RUN ls
