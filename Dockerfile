@@ -1,8 +1,8 @@
 FROM rockylinux/rockylinux:latest
 # install git with `autoyes` Automatically answer yes for all questions
 RUN dnf makecache --refresh
-RUN dnf -y install wget
-RUN dnf -y install docker
+# RUN dnf -y install wget
+# RUN dnf -y install docker
 RUN dnf install --assumeyes git-all
 # pull the latest developer code from the `docker-build` branch
 RUN git clone --branch docker-build https://github.com/kuhlaid/dataverse.git
