@@ -14,5 +14,5 @@ RUN git clone --depth 1 -b develop https://github.com/IQSS/dataverse
 # CMD ["conf/docker-aio/prep_it.bash"] (no good)
 # CMD ["sh", "-c", "./conf/docker-aio/prep_it.bash"] (sh: ./conf/docker-aio/prep_it.bash: No such file or directory)
 # CMD ./conf/docker-aio/prep_it.bash (/bin/sh: ./conf/docker-aio/prep_it.bash: No such file or directory)
-CMD cd dataverse | ./conf/docker-aio/prep_it.bash
+# CMD cd dataverse | ./conf/docker-aio/prep_it.bash (/bin/sh: ./conf/docker-aio/prep_it.bash: No such file or directory)
 # CMD ls
