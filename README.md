@@ -12,8 +12,16 @@ Within Docker Desktop, create a new Dev Environment using `https://github.com/ku
 
 Next open the terminal of your new container in Docker Desktop and run:
 
-Now we have a `starter` Docker image:
-`cd dataverse`
-`./conf/docker-aio/prep_it.bash`
+```bash
+cd com*
+docker build -t starter .
+```
+
+Now we have a `starter` Docker image we need to run the image (create a container) and open the terminal in the container to run:
+
+```bash
+cd dataverse
+./conf/docker-aio/prep_it.bash
+```
 
 These commands will open the root directory of the Dataverse code and then execute the `prep_it.bash` script to begin the Dataverse software build process. 
