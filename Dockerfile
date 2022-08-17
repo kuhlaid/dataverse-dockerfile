@@ -7,7 +7,8 @@ RUN dnf install --assumeyes git-all
 # pull the latest developer code from the `docker-build` branch
 # RUN git clone --branch docker-build https://github.com/kuhlaid/dataverse.git (not having luck with this one due to Maven plugin failing at the end)
 
-ADD https://api.github.com/repos/kuhlaid/dataverse/git/refs/heads/docker-build version.json   # try to prevent Docker from caching the Dataverse code
+# try to prevent Docker from caching the Dataverse code
+ADD https://api.github.com/repos/kuhlaid/dataverse/git/refs/heads/docker-build version.json
 RUN git clone https://github.com/kuhlaid/dataverse.git --branch docker-build --single-branch
 
 # trying latest Dataverse develop codebase
