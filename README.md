@@ -1,6 +1,6 @@
 # What does this repo do?
 
-This is a test to determine if the Dataverse Project software can be built using Docker without the need to install `java11 compiler, maven, make, wget` locally on your computer. We want a Docker container to take care of this. 
+This is a test to determine if the Dataverse Project software can be built using Docker without the need to install `java11 compiler, maven, make, wget` locally on your computer. We want a Docker container to take care of this.
 
 ## How does the setup differ?
 
@@ -24,4 +24,4 @@ cd dataverse
 
 The `cd dataverse` command opens the dataverse directory where the Dataverse software was downloaded from GitHub. The `./conf/docker-aio/prep_it.bash` command kicks off the build process of the Dataverse software.
 
-> *These processes are currently failing but progress is being made, so this documentation will likely change.*
+> *These processes are currently failing but progress is being made, so this documentation will likely change. Docker is replaced by podman in RHEL environments so may be an issue trying to get the Docker commands to work with that.*
