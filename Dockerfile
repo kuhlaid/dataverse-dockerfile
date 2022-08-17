@@ -8,19 +8,5 @@ RUN dnf install --assumeyes git-all
 # RUN git clone --branch docker-build https://github.com/kuhlaid/dataverse.git (not having luck with this one due to Maven plugin failing at the end)
 
 # trying latest Dataverse develop codebase
-RUN git clone --branch docker-aio-orig https://github.com/kuhlaid/dataverse.git
-
-# RUN cd dataverse
-# ENTRYPOINT ./conf/docker-aio/prep_it.bash ; /bin/bash (does not work)
-# RUN /bin/bash -c ./conf/docker-aio/prep_it.bash (does not work)
-# RUN /bin/bash -c /dataverse/conf/docker-aio/prep_it.bash (does not work)
-# CMD ["/dataverse/conf/docker-aio/prep_it.bash"] (does not work)
-# CMD ["./conf/docker-aio/prep_it.bash"] (Docker disliked this one)
-# CMD ["conf/docker-aio/prep_it.bash"] (no good)
-# CMD ["sh", "-c", "./conf/docker-aio/prep_it.bash"] (sh: ./conf/docker-aio/prep_it.bash: No such file or directory)
-# CMD ./conf/docker-aio/prep_it.bash (/bin/sh: ./conf/docker-aio/prep_it.bash: No such file or directory)
-# CMD cd dataverse | ./conf/docker-aio/prep_it.bash (/bin/sh: ./conf/docker-aio/prep_it.bash: No such file or directory)
-# CMD ls
-
-
+RUN git clone https://github.com/kuhlaid/dataverse.git --branch docker-aio-orig --single-branch
 # -------- this file is used as our development starter because we want a reproducible starting environment to build our dataverse software
