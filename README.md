@@ -8,20 +8,21 @@ Other installs assume you have certain software installed on your system, and if
 
 ## What are the steps to build a Dataverse host?
 
-Within Docker Desktop, create a new Dev Environment using `https://github.com/kuhlaid/dataverse-dockerfile`. This will build a simple RockyLinux Docker container for running the Dataverse Software build process.
-
-Next open the terminal of your new container in Docker Desktop and run:
+Within Docker Desktop, create a new Dev Environment using `https://github.com/kuhlaid/dataverse-dockerfile`. This will build a simple Linux Docker container with the files from this repo, and we will use this container to run the [Dockerfile](/Dockerfile) since we need commands run from a consistent source for testing. To run the [Dockerfile](/Dockerfile) open the terminal of your new container in Docker Desktop and run:
 
 ```bash
 cd com*
 docker build -t starter .
 ```
 
-Now we have a `starter` Docker image we need to run the image (create a container) and open the terminal in the container to run:
+Note: Docker Desktop Dev Environment places code from GitHub under a `com.docker.devenvironments.code` directory so we use `cd com*` for short to open this directory.
+Now we have a `starter` Docker image we need to run the `starter` image (create a container) and open the terminal of the container to run:
 
 ```bash
 cd dataverse
 ./conf/docker-aio/prep_it.bash
 ```
 
-These commands will open the root directory of the Dataverse code and then execute the `prep_it.bash` script to begin the Dataverse software build process. 
+These commands will open the root directory of the Dataverse code and then execute the `prep_it.bash` script to begin the Dataverse software build process.
+
+> *These processes are currently failing on the Maven build, so this documentation will likely change.*
