@@ -6,7 +6,8 @@ RUN dnf -y install docker
 RUN dnf install --assumeyes git-all
 # pull the latest developer code from the `docker-build` branch
 # RUN git clone --branch docker-build https://github.com/kuhlaid/dataverse.git (not having luck with this one due to Maven plugin failing at the end)
+RUN git clone https://github.com/kuhlaid/dataverse.git --branch docker-build --single-branch
 
 # trying latest Dataverse develop codebase
-RUN git clone https://github.com/kuhlaid/dataverse.git --branch docker-aio-orig --single-branch
+# RUN git clone https://github.com/kuhlaid/dataverse.git --branch docker-aio-orig --single-branch
 # -------- this file is used as our development starter because we want a reproducible starting environment to build our dataverse software
