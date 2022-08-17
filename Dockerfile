@@ -5,7 +5,11 @@ RUN dnf -y install wget
 RUN dnf -y install docker
 RUN dnf install --assumeyes git-all
 # pull the latest developer code from the `docker-build` branch
-RUN git clone --branch docker-build https://github.com/kuhlaid/dataverse.git
+# RUN git clone --branch docker-build https://github.com/kuhlaid/dataverse.git (not having luck with this one due to Maven plugin failing at the end)
+
+# trying latest Dataverse develop codebase
+RUN git clone --branch docker-aio-orig https://github.com/kuhlaid/dataverse.git
+
 # RUN cd dataverse
 # ENTRYPOINT ./conf/docker-aio/prep_it.bash ; /bin/bash (does not work)
 # RUN /bin/bash -c ./conf/docker-aio/prep_it.bash (does not work)
