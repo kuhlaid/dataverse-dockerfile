@@ -1,14 +1,20 @@
 # pull from https://hub.docker.com/_/debian/
 FROM debian:sid-20220801
+ENV DEBIAN_FRONTEND noninteractive
 # these were old RockyLinux commands (removed since Docker is replaced with Podman in RHEL environments)
 # RUN dnf makecache --refresh
 # RUN dnf -y install wget
 # RUN dnf -y install docker
 # RUN dnf install --assumeyes git-all
 
-RUN sudo apt -y install wget
-RUN sudo apt -y install docker
-RUN sudo apt -y install git-all
+RUN apt-get update && apt-get install -y \
+    docker \
+    git \
+    wget
+    
+# RUN sudo apt -y install wget
+# RUN sudo apt -y install docker
+# RUN sudo apt -y install git-all
 
 # trying a Debian branch of the Docker build
 ADD https://api.github.com/repos/kuhlaid/dataverse/git/refs/heads/docker-debian version.json
