@@ -1,4 +1,5 @@
-FROM debian/debian:latest
+# pull from https://hub.docker.com/_/debian/
+FROM debian:sid-20220801
 # install git with `autoyes` Automatically answer yes for all questions
 RUN dnf makecache --refresh
 RUN dnf -y install wget
