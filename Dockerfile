@@ -1,6 +1,6 @@
 # pull from https://hub.docker.com/_/debian/
 # we need to use Debian bullseye v11
-FROM debian:sid-20220709
+FROM debian:stable
 ENV DEBIAN_FRONTEND noninteractive
 # these were old RockyLinux commands (removed since Docker is replaced with Podman in RHEL environments)
 # RUN dnf makecache --refresh
