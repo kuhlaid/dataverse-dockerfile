@@ -1,5 +1,6 @@
 # pull from https://hub.docker.com/_/debian/
-FROM debian:sid-20220801
+# we need to use Debian bullseye v11
+FROM debian:sid-20220709
 ENV DEBIAN_FRONTEND noninteractive
 # these were old RockyLinux commands (removed since Docker is replaced with Podman in RHEL environments)
 # RUN dnf makecache --refresh
@@ -19,6 +20,9 @@ RUN apt-get update && apt-get install -y \
 # trying a Debian branch of the Docker build
 ADD https://api.github.com/repos/kuhlaid/dataverse/git/refs/heads/docker-debian version.json
 RUN git clone https://github.com/kuhlaid/dataverse.git --branch docker-debian --single-branch
+
+# run `cat /etc/os-release` to check the OS version after the container is built
+
 
 # pull the latest developer code from the `docker-build` branch
 # RUN git clone --branch docker-build https://github.com/kuhlaid/dataverse.git (not having luck with this one due to Maven plugin failing at the end)
