@@ -1,4 +1,4 @@
-FROM rockylinux/rockylinux:latest
+FROM debian/debian:latest
 # install git with `autoyes` Automatically answer yes for all questions
 RUN dnf makecache --refresh
 RUN dnf -y install wget
