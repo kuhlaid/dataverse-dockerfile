@@ -24,4 +24,4 @@ cd dataverse
 
 The `cd dataverse` command opens the dataverse directory where the Dataverse software was downloaded from GitHub. The `./conf/docker-aio/prep_it.bash` command kicks off the build process of the Dataverse software.
 
-> *These processes are currently failing but progress is being made, so this documentation will likely change. Docker is replaced by podman in RHEL environments so may be an issue trying to get the Docker commands to work with that.*
+> *These processes are currently failing but progress is being made, so this documentation will likely change. Docker is replaced by podman in RHEL environments and seems to be an issue trying to get the Docker commands to work with that. Trying to add Docker to a Debian container (working in a Windows environment with Docker Desktop and WSL) does not seem to work since you cannot install Docker using `apt-get install docker`. Working on [https://docs.docker.com/engine/install/debian/#prerequisites] to give that a try.*
