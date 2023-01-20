@@ -14,16 +14,16 @@ RUN apt-get update && apt-get install -y \
     wget
     
 # trying to enable systemd
-RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in ; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done);
-rm -f /lib/systemd/system/multi-user.target.wants/;
-rm -f /etc/systemd/system/.wants/;
-rm -f /lib/systemd/system/local-fs.target.wants/;
-rm -f /lib/systemd/system/sockets.target.wants/udev;
-rm -f /lib/systemd/system/sockets.target.wants/initctl;
-rm -f /lib/systemd/system/basic.target.wants/;
-rm -f /lib/systemd/system/anaconda.target.wants/*;
-VOLUME [ “/sys/fs/cgroup” ]
-CMD ["/usr/sbin/init"]
+# RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in ; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done);
+# rm -f /lib/systemd/system/multi-user.target.wants/;
+# rm -f /etc/systemd/system/.wants/;
+# rm -f /lib/systemd/system/local-fs.target.wants/;
+# rm -f /lib/systemd/system/sockets.target.wants/udev;
+# rm -f /lib/systemd/system/sockets.target.wants/initctl;
+# rm -f /lib/systemd/system/basic.target.wants/;
+# rm -f /lib/systemd/system/anaconda.target.wants/*;
+# VOLUME [ “/sys/fs/cgroup” ]
+# CMD ["/usr/sbin/init"]
 
 # trying a Debian branch of the Docker build and prevent Docker from caching the Dataverse code
 ADD https://api.github.com/repos/kuhlaid/dataverse/git/refs/heads/docker-debian version.json

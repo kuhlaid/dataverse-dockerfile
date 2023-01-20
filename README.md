@@ -19,6 +19,8 @@ cd com*
 docker build -t starter .
 ```
 
+*** NOTE: the `com` directory no longer seems to get included with Docker Desktop Dev Environment as of 1/20/2023 ***
+
 The `cd com*` command simply opens the directory where the code in this repository is saved in the Docker container. Note: Docker Desktop Dev Environment places code from GitHub under a `com.docker.devenvironments.code` directory so we use `cd com*` for short to open this directory. The `docker build -t starter .` command creates a Docker image named `starter` using the commands found in the [Dockerfile](/Dockerfile). Now that we have a `starter` Docker image, we need to run the `starter` image to create a container for it and open the terminal of the container, then run:
 
 ```bash
