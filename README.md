@@ -20,11 +20,13 @@ Stick with the Dockerfile as the starting point so it is a consistent environmen
 
 Run `docker compose up` from this directory in your command terminal. This will first build our starter docker image which we will use to build our Dataverse environment (we do this first step for build consistency).
 
+If needing to rebuild the container from scratch first execute `docker builder prune`.
 
 ### Issues
 
-I tried to run `systemctl list-unit-files |grep enabled` from within the `docker-starter` Docker container, but it does no show anything enabled (not sure if this is useful resource [https://docs.docker.com/config/daemon/systemd/]) or if not having anything enabled at this point is a problem.
+I tried to run `systemctl list-unit-files |grep enabled` from within the `docker-starter` Docker container, but it does no show anything enabled (not sure if this is a useful resource [https://docs.docker.com/config/daemon/systemd/]) or if not having anything enabled at this point is a problem.
 
+...giving up. The instructions for building the WAR file assumes having a UI to and manually making selections within a 'windows' environment, which will not work for me since I am looking for a completely scripted build script.
 
 
 
@@ -54,7 +56,7 @@ I tried to run `systemctl list-unit-files |grep enabled` from within the `docker
 Within Docker Desktop, create a new Dev Environment using `https://github.com/kuhlaid/dataverse-dockerfile`. This will build the simple Linux Docker container mentioned above. Once the new container is built from `https://github.com/kuhlaid/dataverse-dockerfile`, we then open the terminal of this container in Docker Desktop and run:
 
 ```bash
-cd com*
+cd dataverse
 docker build -t starter .
 ```
 
