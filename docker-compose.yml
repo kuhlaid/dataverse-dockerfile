@@ -1,0 +1,11 @@
+version: '3.9'
+# This is the docker configuration script (not very useful)
+
+services:
+    dataverse-container:
+      # run the commands in the Dockerfile (found in this directory)
+      build: .
+      # give this Docker container a name
+      container_name: dataverse-container
+      # we need tty set to true to keep the container running after the build
+      tty: true

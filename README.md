@@ -8,9 +8,48 @@ This is a test to determine if the Dataverse Project software can be built using
 
 ## How does the setup differ?
 
-Other installs assume you have certain software installed on your system, and if you are a Windows user then you are out of luck because if you try to clone the Dataverse repository to your local computer, the code is converted to CRLF end of line characters (which kills your chances of working with the Docker instructions mentioned in the Dataverse Guides since they are Linux based). **What we need, is to run the Docker setup from WITHIN a Linux environment.** So by using this [Dockerfile](/Dockerfile), Windows developers can ensure they are building using the same processes for consistent testing and building of the Dataverse software environment. The [Dockerfile](/Dockerfile) in this repository creates a basic RockyLinux image with Git, Docker and WGET installed. This is the image you will use to run the Dataverse build command.
+[only in concept phase] Other installs assume you have certain software installed on your system, and if you are a Windows user then you are out of luck because if you try to clone the Dataverse repository to your local computer, the code is converted to CRLF end of line characters (which kills your chances of working with the Docker instructions mentioned in the Dataverse Guides since they are Linux based). **What we need, is to run the Docker setup from WITHIN a Linux environment OR we need to download the repository from WITHIN Linux.** So by using this [Dockerfile](/Dockerfile), Windows developers can ensure they are building using the same processes for consistent testing and building of the Dataverse software environment. The [Dockerfile](/Dockerfile) in this repository creates a basic RockyLinux image with Git, Docker and WGET installed. This is the image you will use to run the Dataverse build command.
 
-## What are the steps to build a Dataverse host from scratch?
+## New Docker approach 1/20/2023 (do not use Docker Desktop Dev Environment since it changes too much)
+
+Beginning work on a `docker-compose.yml` using [https://github.com/IQSS/dataverse-docker/blob/master/docker-compose.yml] or [https://docs.docker.com/compose/gettingstarted/#step-3-define-services-in-a-compose-file]. The key might be using the `build: .` directive to run the Dockerfile for the image we need (we might want to place these Dockerfiles within subdirectories of the root).
+
+Stick with the Dockerfile as the starting point so it is a consistent environment making the Git calls to pull the repository into Linux and then build out from there. Be sure to use the `depends_on:` command.
+
+### Commands
+
+Run `docker compose up` from this directory in your command terminal. This will first build our starter docker image which we will use to build our Dataverse environment (we do this first step for build consistency).
+
+
+### Issues
+
+I tried to run `systemctl list-unit-files |grep enabled` from within the `docker-starter` Docker container, but it does no show anything enabled (not sure if this is useful resource [https://docs.docker.com/config/daemon/systemd/]) or if not having anything enabled at this point is a problem.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## [no longer works as of 1/19/2023] What are the steps to build a Dataverse host from scratch?
 
 Within Docker Desktop, create a new Dev Environment using `https://github.com/kuhlaid/dataverse-dockerfile`. This will build the simple Linux Docker container mentioned above. Once the new container is built from `https://github.com/kuhlaid/dataverse-dockerfile`, we then open the terminal of this container in Docker Desktop and run:
 
